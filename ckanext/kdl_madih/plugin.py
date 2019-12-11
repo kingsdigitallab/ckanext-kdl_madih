@@ -190,13 +190,14 @@ class Kdl_MadihPlugin(
         schema.update({
             'madih_time_data_collection': [
                 toolkit.get_validator('ignore_missing'),
-                toolkit.get_converter('convert_to_extras')
+                toolkit.get_converter('convert_from_extras')
             ],
             'madih_time_periods': [
                 toolkit.get_validator('ignore_missing'),
                 toolkit.get_converter('convert_from_tags')(
                     'madih_time_periods')
             ],
+
             'kdl_project_url': [
                 toolkit.get_converter('convert_from_extras'),
                 toolkit.get_validator('url_validator'),
