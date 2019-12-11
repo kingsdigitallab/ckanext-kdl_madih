@@ -2,9 +2,9 @@
 {% ckan_extends %}
 {% block package_metadata_fields %}
 	<div class="control-group">
-	    <label class="control-label" for="field-madih_time_period">{{ _("Time Period") }}</label>
+	    <label class="control-label" for="field-madih_time_periods">{{ _("Time Period") }}</label>
 	    <div class="controls">
-	      <select multiple id="field-madih_time_period" name="madih_time_period" data-module="autocomplete">
+	      <select multiple id="field-madih_time_periods" name="madih_time_periods" data-module="autocomplete">
 	        {% for madih_time_periods in h.madih_time_periods()  %}
 	          <option value="{{ madih_time_periods }}" {% if madih_time_periods in data.get('madih_time_periods', []) %}selected="selected"{% endif %}>{{ madih_time_periods}}</option>
 	        {% endfor %}

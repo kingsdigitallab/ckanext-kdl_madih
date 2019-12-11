@@ -120,6 +120,12 @@ class Kdl_MadihPlugin(
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IDatasetForm)
     plugins.implements(plugins.ITemplateHelpers)
+    plugins.implements(plugins.IFacets)
+
+    # Add time period to facets on left
+    def dataset_facets(self, facets_dict, package_type):
+        facets_dict['madih_time_periods'] = plugins.toolkit._('Time Period')
+        return facets_dict
 
     def get_helpers(self):
         return {
@@ -142,7 +148,8 @@ class Kdl_MadihPlugin(
             ],
             'madih_time_periods': [
                 toolkit.get_validator('ignore_missing'),
-                toolkit.get_converter('convert_from_tags')('time_periods')
+                toolkit.get_converter('convert_to_tags')(
+                    'madih_time_periods')
             ],
             'kdl_project_url': [
                 toolkit.get_validator('ignore_missing'),

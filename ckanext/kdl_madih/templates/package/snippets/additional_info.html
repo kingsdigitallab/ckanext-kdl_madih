@@ -2,12 +2,7 @@
 
 {% block extras %}
 
-{% if pkg_dict.madih_time_period %}
-<tr>
-      <th scope="row" class="dataset-label">{{ _("Custom Text") }}</th>
-      <td class="dataset-details">{{ pkg_dict.custom_text }}</td>
-    </tr>
-{% endif %}
+
 
 {% if pkg_dict.kdl_project_url %}
 <tr>
@@ -65,6 +60,21 @@
   <th scope="row" class="dataset-label">{{ _('Citation information') }}</th>
   <td class="dataset-details">{{ h.render_markdown(pkg_dict.kdl_project_citation) }}</td>
 </tr>
+{% endif %}
+
+{% if pkg_dict.madih_time_data_collection %}
+<tr>
+      <th scope="row" class="dataset-label">{{ _("Time of data collection") }}</th>
+      <td class="dataset-details">{{ pkg_dict.madih_time_data_collection }}</td>
+    </tr>
+{% endif %}
+
+
+{% if pkg_dict.madih_time_periods %}
+<tr>
+      <th scope="row" class="dataset-label">{{ _("Time Periods") }}</th>
+      <td class="dataset-details">{{ pkg_dict.madih_time_periods }}</td>
+    </tr>
 {% endif %}
 
 {% endblock %}
