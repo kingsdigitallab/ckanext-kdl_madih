@@ -4,76 +4,76 @@
 
 
 
-{% if pkg_dict.kdl_project_url %}
+{% if pkg_dict.madih_kdl_project_url %}
 <tr>
   <th scope="row" class="dataset-label">{{ _('Project URL') }}</th>
   <td class="dataset-details">
-    <a href="{{ pkg_dict.kdl_project_url }}" target="{{ pkg_dict.title }}">{{ pkg_dict.kdl_project_url }}</a>
+    <a href="{{ pkg_dict.madih_kdl_project_url }}" target="{{ pkg_dict.title }}">{{ pkg_dict.madih_kdl_project_url }}</a>
 </td>
 </tr>
 {% endif %}
 
-{% if pkg_dict.kdl_project_pi %}
+{% if pkg_dict.madih_kdl_project_pi %}
 <tr>
   <th scope="row" class="dataset-label">{{ _('Project principal and co-investigators') }}</th>
-  <td class="dataset-details">{{ h.render_markdown(pkg_dict.kdl_project_pi) }}</td>
+  <td class="dataset-details">{{ h.render_markdown(pkg_dict.madih_kdl_project_pi) }}</td>
 </tr>
 {% endif %}
 
-{% if pkg_dict.kdl_project_team %}
+{% if pkg_dict.madih_kdl_project_team %}
 <tr>
   <th scope="row" class="dataset-label">{{ _('Project team') }}</th>
-  <td class="dataset-details">{{ h.render_markdown(pkg_dict.kdl_project_team) }}</td>
+  <td class="dataset-details">{{ h.render_markdown(pkg_dict.madih_kdl_project_team) }}</td>
 </tr>
 {% endif %}
 
-{% if pkg_dict.kdl_project_start_date %}
+{% if pkg_dict.madih_kdl_project_start_date %}
 <tr>
   <th scope="row" class="dataset-label">{{ _('Project start date') }}</th>
-  <td class="dataset-details">{{ pkg_dict.kdl_project_start_date }}</td>
+  <td class="dataset-details">{{ pkg_dict.madih_kdl_project_start_date }}</td>
 </tr>
 {% endif %}
 
-{% if pkg_dict.kdl_project_end_date %}
+{% if pkg_dict.madih_kdl_project_end_date %}
 <tr>
   <th scope="row" class="dataset-label">{{ _('Project end date') }}</th>
-  <td class="dataset-details">{{ pkg_dict.kdl_project_end_date }}</td>
+  <td class="dataset-details">{{ pkg_dict.madih_kdl_project_end_date }}</td>
 </tr>
 {% endif %}
 
-{% if pkg_dict.kdl_project_status %}
+{% if pkg_dict.madih_kdl_project_status %}
 <tr>
   <th scope="row" class="dataset-label">{{ _('Project status') }}</th>
-  <td class="dataset-details">{{ pkg_dict.kdl_project_status.0 }}</td>
+  <td class="dataset-details">{{ pkg_dict.madih_kdl_project_status.0 }}</td>
 </tr>
 {% endif %}
 
-{% if pkg_dict.kdl_project_funder %}
+{% if pkg_dict.madih_kdl_project_funder %}
 <tr>
   <th scope="row" class="dataset-label">{{ _('Project funder') }}</th>
-  <td class="dataset-details">{{ h.render_markdown(pkg_dict.kdl_project_funder) }}</td>
+  <td class="dataset-details">{{ h.render_markdown(pkg_dict.madih_kdl_project_funder) }}</td>
 </tr>
 {% endif %}
 
-{% if pkg_dict.kdl_project_citation %}
+{% if pkg_dict.madih_kdl_project_citation %}
 <tr>
   <th scope="row" class="dataset-label">{{ _('Citation information') }}</th>
-  <td class="dataset-details">{{ h.render_markdown(pkg_dict.kdl_project_citation) }}</td>
+  <td class="dataset-details">{{ h.render_markdown(pkg_dict.madih_kdl_project_citation) }}</td>
 </tr>
 {% endif %}
 
-{% if pkg_dict.madih_time_data_collection %}
+{% if pkg_dict.madih_kdl_time_data_collection %}
 <tr>
       <th scope="row" class="dataset-label">{{ _("Time of data collection") }}</th>
-      <td class="dataset-details">{{ pkg_dict.madih_time_data_collection }}</td>
+      <td class="dataset-details">{{ pkg_dict.madih_kdl_time_data_collection }}</td>
     </tr>
 {% endif %}
 
 
-{% if pkg_dict.madih_time_periods %}
+{% if pkg_dict.madih_kdl_time_periods %}
 <tr>
       <th scope="row" class="dataset-label">{{ _("Time Periods") }}</th>
-      <td class="dataset-details">{{ pkg_dict.madih_time_periods }}</td>
+      <td class="dataset-details">{{ pkg_dict.madih_kdl_time_periods }}</td>
     </tr>
 {% endif %}
 

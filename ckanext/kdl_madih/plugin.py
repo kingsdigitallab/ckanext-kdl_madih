@@ -2,12 +2,12 @@ import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 
 
-def kdl_project_status():
+def madih_kdl_project_status():
     create_kdl_project_status()
 
     try:
         tag_list = toolkit.get_action('tag_list')
-        return tag_list(data_dict={'vocabulary_id': 'kdl_project_status'})
+        return tag_list(data_dict={'vocabulary_id': 'madih_kdl_project_status'})
     except toolkit.ObjectNotFound:
         return None
 
@@ -17,10 +17,10 @@ def create_kdl_project_status():
     context = {'user': user['name']}
 
     try:
-        data = {'id': 'kdl_project_status'}
+        data = {'id': 'madih_kdl_project_status'}
         toolkit.get_action('vocabulary_show')(context, data)
     except toolkit.ObjectNotFound:
-        data = {'name': 'kdl_project_status'}
+        data = {'name': 'madih_kdl_project_status'}
         vocab = toolkit.get_action('vocabulary_create')(context, data)
         for tag in (u'Completed', u'Ongoing'):
             data = {'name': tag, 'vocabulary_id': vocab['id']}
@@ -29,11 +29,11 @@ def create_kdl_project_status():
 
 # Time period tag vocabulary
 
-def madih_time_periods():
+def madih_kdl_time_periods():
     create_time_periods()
     try:
         tag_list = toolkit.get_action('tag_list')
-        return tag_list(data_dict={'vocabulary_id': 'madih_time_periods'})
+        return tag_list(data_dict={'vocabulary_id': 'madih_kdl_time_periods'})
     except toolkit.ObjectNotFound:
         return None
 
@@ -43,10 +43,10 @@ def create_time_periods():
     context = {'user': user['name']}
 
     try:
-        data = {'id': 'madih_time_periods'}
+        data = {'id': 'madih_kdl_time_periods'}
         vocab = toolkit.get_action('vocabulary_show')(context, data)
     except toolkit.ObjectNotFound:
-        data = {'name': 'madih_time_periods'}
+        data = {'name': 'madih_kdl_time_periods'}
         vocab = toolkit.get_action('vocabulary_create')(context, data)
     for tag in (
         u'Palaeolithic Unspecified',
@@ -124,13 +124,14 @@ class Kdl_MadihPlugin(
 
     # Add time period to facets on left
     def dataset_facets(self, facets_dict, package_type):
-        facets_dict['madih_time_periods'] = plugins.toolkit._('Time Period')
+        facets_dict['madih_kdl_time_periods'] = plugins.toolkit._(
+            'Time Period')
         return facets_dict
 
     def get_helpers(self):
         return {
-            'madih_time_periods': madih_time_periods,
-            'kdl_project_status': kdl_project_status
+            'madih_kdl_time_periods': madih_kdl_time_periods,
+            'madih_kdl_project_status': madih_kdl_project_status
         }
 
     # IConfigurer
@@ -142,45 +143,43 @@ class Kdl_MadihPlugin(
 
     def _modify_package_schema(self, schema):
         schema.update({
-            'madih_time_data_collection': [
-                toolkit.get_validator('ignore_missing'),
+            'madih_kdl_time_data_collection': [
                 toolkit.get_converter('convert_to_extras')
             ],
-            'madih_time_periods': [
-                toolkit.get_validator('ignore_missing'),
+            'madih_kdl_time_periods': [
                 toolkit.get_converter('convert_to_tags')(
-                    'madih_time_periods')
+                    'madih_kdl_time_periods')
             ],
-            'kdl_project_url': [
+            'madih_kdl_project_url': [
                 toolkit.get_validator('ignore_missing'),
                 toolkit.get_validator('url_validator'),
                 toolkit.get_converter('convert_to_extras')
             ],
-            'kdl_project_pi': [
+            'madih_kdl_project_pi': [
                 toolkit.get_validator('ignore_missing'),
                 toolkit.get_converter('convert_to_extras')
             ],
-            'kdl_project_team': [
+            'madih_kdl_project_team': [
                 toolkit.get_validator('ignore_missing'),
                 toolkit.get_converter('convert_to_extras')
             ],
-            'kdl_project_start_date': [
+            'madih_kdl_project_start_date': [
                 toolkit.get_validator('ignore_missing'),
                 toolkit.get_converter('convert_to_extras')
             ],
-            'kdl_project_end_date': [
+            'madih_kdl_project_end_date': [
                 toolkit.get_validator('ignore_missing'),
                 toolkit.get_converter('convert_to_extras')
             ],
-            'kdl_project_status': [
-                toolkit.get_validator('ignore_missing'),
-                toolkit.get_converter('convert_to_tags')('kdl_project_status')
+            'madih_kdl_project_status': [
+                toolkit.get_converter('convert_to_tags')(
+                    'madih_kdl_project_status')
             ],
-            'kdl_project_funder': [
+            'madih_kdl_project_funder': [
                 toolkit.get_validator('ignore_missing'),
                 toolkit.get_converter('convert_to_extras')
             ],
-            'kdl_project_citation': [
+            'madih_kdl_project_citation': [
                 toolkit.get_validator('ignore_missing'),
                 toolkit.get_converter('convert_to_extras')
             ],
@@ -195,47 +194,44 @@ class Kdl_MadihPlugin(
             toolkit.get_converter('free_tags_only'))
 
         schema.update({
-            'madih_time_data_collection': [
-                toolkit.get_validator('ignore_missing'),
+            'madih_kdl_time_data_collection': [
                 toolkit.get_converter('convert_from_extras')
             ],
-            'madih_time_periods': [
-                toolkit.get_validator('ignore_missing'),
+            'madih_kdl_time_periods': [
                 toolkit.get_converter('convert_from_tags')(
-                    'madih_time_periods')
+                    'madih_kdl_time_periods')
             ],
-
-            'kdl_project_url': [
+            'madih_kdl_project_url': [
                 toolkit.get_converter('convert_from_extras'),
                 toolkit.get_validator('url_validator'),
                 toolkit.get_validator('ignore_missing')
             ],
-            'kdl_project_pi': [
+            'madih_kdl_project_pi': [
                 toolkit.get_converter('convert_from_extras'),
                 toolkit.get_validator('ignore_missing')
             ],
-            'kdl_project_team': [
+            'madih_kdl_project_team': [
                 toolkit.get_converter('convert_from_extras'),
                 toolkit.get_validator('ignore_missing')
             ],
-            'kdl_project_start_date': [
+            'madih_kdl_project_start_date': [
                 toolkit.get_converter('convert_from_extras'),
                 toolkit.get_validator('ignore_missing')
             ],
-            'kdl_project_end_date': [
+            'madih_kdl_project_end_date': [
                 toolkit.get_converter('convert_from_extras'),
                 toolkit.get_validator('ignore_missing')
             ],
-            'kdl_project_status': [
+            'madih_kdl_project_status': [
                 toolkit.get_converter(
-                    'convert_from_tags')('kdl_project_status'),
+                    'convert_from_tags')('madih_kdl_project_status'),
                 toolkit.get_validator('ignore_missing')
             ],
-            'kdl_project_funder': [
+            'madih_kdl_project_funder': [
                 toolkit.get_converter('convert_from_extras'),
                 toolkit.get_validator('ignore_missing')
             ],
-            'kdl_project_citation': [
+            'madih_kdl_project_citation': [
                 toolkit.get_converter('convert_from_extras'),
                 toolkit.get_validator('ignore_missing')
             ],

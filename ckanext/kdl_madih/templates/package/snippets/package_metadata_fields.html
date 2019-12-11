@@ -1,24 +1,28 @@
 
 {% ckan_extends %}
+
+  {% block custom_fields %}
+  {% endblock %}
+
 {% block package_metadata_fields %}
 	<div class="control-group">
-	    <label class="control-label" for="field-madih_time_periods">{{ _("Time Period") }}</label>
+	    <label class="control-label" for="field-madih_kdl_time_periods">{{ _("Time Period") }}</label>
 	    <div class="controls">
-	      <select multiple id="field-madih_time_periods" name="madih_time_periods" data-module="autocomplete">
-	        {% for madih_time_periods in h.madih_time_periods()  %}
-	          <option value="{{ madih_time_periods }}" {% if madih_time_periods in data.get('madih_time_periods', []) %}selected="selected"{% endif %}>{{ madih_time_periods}}</option>
+	      <select multiple  id="field-madih_kdl_time_periods" name="madih_kdl_time_periods" data-module="autocomplete">
+	        {% for madih_kdl_time_period in h.madih_kdl_time_periods()  %}
+	          <option value="{{ madih_kdl_time_period }}" {% if madih_kdl_time_period in data.get('madih_kdl_time_periods', []) %}selected="selected"{% endif %}>{{ madih_kdl_time_period}}</option>
 	        {% endfor %}
 	      </select>
 	    </div>
 	  </div>
 
 	  <div class="control-group">
-    <label class="control-label" for="field-kdl_project_status">{{ _('Project status') }}</label>
+    <label class="control-label" for="field-madih_kdl_project_status">{{ _('Project status') }}</label>
     <div class="controls">
-      <select id="field-kdl_project_status" name="kdl_project_status" data-module="autocomplete">
-        {% for kdl_project_status in h.kdl_project_status()  %}
-        <option value="{{ kdl_project_status }}" {% if kdl_project_status in data.get('kdl_project_status', []) %}selected="selected"{% endif %}>
-            {{ kdl_project_status }}
+      <select id="field-madih_kdl_project_status" name="madih_kdl_project_status" data-module="autocomplete">
+        {% for madih_kdl_project_status in h.madih_kdl_project_status()  %}
+        <option value="{{ madih_kdl_project_status }}" {% if madih_kdl_project_status in data.get('madih_kdl_project_status', []) %}selected="selected"{% endif %}>
+            {{ madih_kdl_project_status }}
         </option>
         {% endfor %}
     </select>
