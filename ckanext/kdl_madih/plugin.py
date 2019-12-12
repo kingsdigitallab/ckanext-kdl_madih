@@ -126,7 +126,7 @@ class Kdl_MadihPlugin(
     def dataset_facets(self, facets_dict, package_type):
         facets_dict['vocab_madih_kdl_time_periods'] = plugins.toolkit._(
             'Time Periods')
-        facets_dict['voacb_madih_kdl_project_status'] = plugins.toolkit._(
+        facets_dict['vocab_madih_kdl_project_status'] = plugins.toolkit._(
             'Project Status')
         return facets_dict
 
