@@ -145,9 +145,7 @@ class Kdl_MadihPlugin(
 
     def _modify_package_schema(self, schema):
         schema.update({
-            'madih_kdl_time_data_collection': [
-                toolkit.get_converter('convert_to_extras')
-            ],
+
             'madih_kdl_time_periods': [
                 toolkit.get_converter('convert_to_tags')(
                     'madih_kdl_time_periods')
@@ -196,9 +194,7 @@ class Kdl_MadihPlugin(
             toolkit.get_converter('free_tags_only'))
 
         schema.update({
-            'madih_kdl_time_data_collection': [
-                toolkit.get_converter('convert_from_extras')
-            ],
+
             'madih_kdl_time_periods': [
                 toolkit.get_converter('convert_from_tags')(
                     'madih_kdl_time_periods')
