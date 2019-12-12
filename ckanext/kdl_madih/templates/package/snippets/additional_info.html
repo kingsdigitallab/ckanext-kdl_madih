@@ -73,7 +73,7 @@
 {% if pkg_dict.madih_kdl_time_periods %}
 <tr>
       <th scope="row" class="dataset-label">{{ _("Time Periods") }}</th>
-      <td class="dataset-details">{{ pkg_dict.madih_kdl_time_periods }}</td>
+      <td class="dataset-details">{{ pkg_dict.madih_kdl_time_periods|join(", ")}}</td>
     </tr>
 {% endif %}
 

@@ -125,7 +125,9 @@ class Kdl_MadihPlugin(
     # Add time period to facets on left
     def dataset_facets(self, facets_dict, package_type):
         facets_dict['madih_kdl_time_periods'] = plugins.toolkit._(
-            'Time Period')
+            'Time Periods')
+        facets_dict['madih_kdl_project_status'] = plugins.toolkit._(
+            'Project Status')
         return facets_dict
 
     def get_helpers(self):
@@ -225,7 +227,6 @@ class Kdl_MadihPlugin(
             'madih_kdl_project_status': [
                 toolkit.get_converter(
                     'convert_from_tags')('madih_kdl_project_status'),
-                toolkit.get_validator('ignore_missing')
             ],
             'madih_kdl_project_funder': [
                 toolkit.get_converter('convert_from_extras'),
