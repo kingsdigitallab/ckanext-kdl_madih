@@ -76,7 +76,7 @@ def create_time_periods():
         u'Early Bronze Age IV',
         u'Middle Bronze Age',
         u'Late Bronze Age',
-        u'Iron Age unspecified,'
+        u'Iron Age unspecified',
         u'Iron Age I',
         u'Iron Age II',
         u'Iron Age III',
