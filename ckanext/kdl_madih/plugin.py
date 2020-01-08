@@ -130,6 +130,15 @@ class Kdl_MadihPlugin(
             'Project Status')
         return facets_dict
 
+    # Currently not changed, may if search is needed
+    def group_facets(self, facets_dict, group_type, package_type):
+        return facets_dict
+
+    # Currently not changed, may if search is needed
+    def organization_facets(self, facets_dict, organization_type,
+                            package_type):
+        return facets_dict
+
     def get_helpers(self):
         return {
             'madih_kdl_time_periods': madih_kdl_time_periods,
