@@ -42,10 +42,10 @@
   <div class="controls">
     <select multiple id="field-madih_kdl_datatype" name="madih_kdl_datatype"
       data-module="autocomplete">
-      {% for dt in h.madih_kdl_datatype()  %}
+      {% for dt in h.madih_kdl_datatype() %}
       <option value="{{ dt }}"
         {% if dt in data.get('madih_kdl_datatype', []) %}selected="selected"
-        {% endif %}>{{ madih_kdl_datatype}}</option>
+        {% endif %}>{{ dt }}</option>
       {% endfor %}
     </select>
   </div>
