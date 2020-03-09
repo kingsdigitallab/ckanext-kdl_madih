@@ -49,6 +49,7 @@ def create_madih_kdl_datatype():
     try:
         vocab = toolkit.get_action("vocabulary_show")(context, data)
     except toolkit.ObjectNotFound:
+        data = {"name": MADIH_KDL_DATATYPE}
         vocab = toolkit.get_action("vocabulary_create")(context, data)
 
     vocab_id = vocab["id"]
