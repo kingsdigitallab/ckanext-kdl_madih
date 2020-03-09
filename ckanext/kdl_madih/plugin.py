@@ -56,7 +56,7 @@ def create_madih_kdl_datatype():
     datatypes = [
         "Databases",
         "Tables",
-        "Images: Aerial photograph",
+        "Images Aerial photograph",
         "Images: Satellite image",
         "Images: Photograph",
         "Images: Plan/Sketch",
