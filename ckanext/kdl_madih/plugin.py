@@ -191,8 +191,10 @@ class Kdl_MadihPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
 
     # Add time period to facets on left
     def dataset_facets(self, facets_dict, package_type):
-        facets_dict["vocab_madih_kdl_time_periods"] = plugins.toolkit._(
-            "Time Periods")
+        facets_dict["vocab_{}".format(MADIH_KDL_DATATYPE)] = plugins.toolkit._(
+            "Data type"
+        )
+        facets_dict["vocab_madih_kdl_time_periods"] = plugins.toolkit._("Time Periods")
         facets_dict["vocab_madih_kdl_project_status"] = plugins.toolkit._(
             "Project Status"
         )
@@ -224,12 +226,10 @@ class Kdl_MadihPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
         schema.update(
             {
                 "madih_kdl_time_periods": [
-                    toolkit.get_converter("convert_to_tags")(
-                        "madih_kdl_time_periods")
+                    toolkit.get_converter("convert_to_tags")("madih_kdl_time_periods")
                 ],
                 MADIH_KDL_DATATYPE: [
-                    toolkit.get_converter("convert_to_tags")(
-                        MADIH_KDL_DATATYPE)
+                    toolkit.get_converter("convert_to_tags")(MADIH_KDL_DATATYPE)
                 ],
                 "madih_kdl_project_url": [
                     toolkit.get_validator("ignore_missing"),
@@ -253,8 +253,7 @@ class Kdl_MadihPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
                     toolkit.get_converter("convert_to_extras"),
                 ],
                 "madih_kdl_project_status": [
-                    toolkit.get_converter("convert_to_tags")(
-                        "madih_kdl_project_status")
+                    toolkit.get_converter("convert_to_tags")("madih_kdl_project_status")
                 ],
                 "madih_kdl_project_funder": [
                     toolkit.get_validator("ignore_missing"),
@@ -271,18 +270,15 @@ class Kdl_MadihPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
     def show_package_schema(self):
         schema = super(Kdl_MadihPlugin, self).show_package_schema()
 
-        schema["tags"]["__extras"].append(
-            toolkit.get_converter("free_tags_only"))
+        schema["tags"]["__extras"].append(toolkit.get_converter("free_tags_only"))
 
         schema.update(
             {
                 "madih_kdl_time_periods": [
-                    toolkit.get_converter("convert_from_tags")(
-                        "madih_kdl_time_periods")
+                    toolkit.get_converter("convert_from_tags")("madih_kdl_time_periods")
                 ],
                 MADIH_KDL_DATATYPE: [
-                    toolkit.get_converter("convert_from_tags")(
-                        MADIH_KDL_DATATYPE)
+                    toolkit.get_converter("convert_from_tags")(MADIH_KDL_DATATYPE)
                 ],
                 "madih_kdl_project_url": [
                     toolkit.get_converter("convert_from_extras"),
